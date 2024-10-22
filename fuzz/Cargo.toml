@@ -1,0 +1,23 @@
+[package]
+name = "jsonway-fuzz"
+version = "0.0.0"
+publish = false
+edition = "2018"
+
+[package.metadata]
+cargo-fuzz = true
+
+[dependencies]
+libfuzzer-sys = "0.4"
+serde = "1.0"
+serde_json = "1.0"
+
+[dependencies.jsonway]
+path = ".."
+
+[[bin]]
+name = "json_fuzzer"
+path = "fuzz_targets/json_fuzzer.rs"
+test = false
+doc = false
+bench = false
